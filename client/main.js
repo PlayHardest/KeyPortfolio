@@ -8,8 +8,12 @@ import './main.html';
 Session.set('headerFx',false);
 
 $(document).ready(function() {
-    var scrollLink = $('.scroll');
+    $('#splashscreen .splash').css('opacity', '1');
+    $('#splashscreen .splash').css('transform', 'initial');
+    $('#header').css('opacity', '1');
+    $('#header').css('transform', 'initial');
 
+    var scrollLink = $('.scroll');
     //Smooth scrolling
     scrollLink.click(function(event) {
         event.preventDefault();//prevent the default action associated with the event from happening
@@ -23,48 +27,49 @@ $(document).ready(function() {
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-	if(document.body.scrollTop > 0 || document.documentElement.scrollTop > 0){
-		if(!Session.get('headerFx')){
-			// console.log("scrolldown -- ",document.documentElement.scrollTop,"||",document.documentElement.scrollTop);
-			Session.set('headerFx',true);
-			console.log("scrolldown -- ",document.documentElement.scrollTop,"||",document.documentElement.scrollTop);
-			//document.getElementById("header").style.paddingTop="0.25rem";
-			document.getElementById("header").style.backgroundColor = "black";
-			var x = document.getElementsByClassName("shrink-a");
-			for (var i =0; i< x.length;i++){
-				//x[i].style.padding="1rem 0.5rem 1rem 0.5rem";
-				x[i].style.color="white";
-			}
+    var splashLink = document.getElementById("splashscreen");
+    console.log("top of page -- ",window.scrollY);
+    if((window.scrollY > 620) && (window.scrollY < 1972)){
+        console.log("change to black");
+        if(!Session.get('headerFx')){
+            Session.set('headerFx',true);
+            document.getElementById("header").style.backgroundColor = "black";
+            $("#header img.topImg").toggleClass("transparent");
+            $("#header img.bottomImg").toggleClass("transparent");
+            var x = document.getElementsByClassName("shrink-a");
+            for (var i =0; i< x.length;i++){
+                x[i].style.color="white";
+            }
 
             var k = document.getElementsByClassName("logo");
             for (var i =0; i< k.length;i++){
-                //x[i].style.padding="1rem 0.5rem 1rem 0.5rem";
                 k[i].style.color="white";
             }
-		}
-		
-	} else {
-		if(Session.get('headerFx')){
-			console.log("top of page -- ",document.documentElement.scrollTop,"||",document.documentElement.scrollTop);
-			Session.set('headerFx',false);
-			// document.getElementById("header-logo").style.opacity="1";
-			//document.getElementById("header-logo").style.transform="initial";
-			// document.getElementById("header").style.paddingTop = "1rem";
-			document.getElementById("header").style.backgroundColor = "initial";
-			var x = document.getElementsByClassName("shrink-a");
-			for (var i =0; i< x.length;i++){
-				//x[i].style.padding="1rem 0.5rem 2rem 0.5rem";
-				x[i].style.color="initial";
-			}
+        }
+    } else {
+        console.log("change to white");
+        if(Session.get('headerFx')){
+            Session.set('headerFx',false);
+            document.getElementById("header").style.backgroundColor = "initial";
+            $("#header img.topImg").toggleClass("transparent");
+            $("#header img.bottomImg").toggleClass("transparent");
+            var x = document.getElementsByClassName("shrink-a");
+            for (var i =0; i< x.length;i++){
+                x[i].style.color="initial";
+            }
             var k = document.getElementsByClassName("logo");
             for (var i =0; i< k.length;i++){
-                //x[i].style.padding="1rem 0.5rem 1rem 0.5rem";
                 k[i].style.color="initial";
             }
-		}
-	}
+        }
+	} 
 }
 
+
+// Template.splashScreen.onCreated(function splashOnCreated() {
+//     document.getElementById("splashscreen").style.opacity="1";
+//     document.getElementById("splashscreen").style.transform="initial";
+// });
 /*
 
 
