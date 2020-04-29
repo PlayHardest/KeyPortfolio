@@ -51,6 +51,9 @@ function scrollFunction() {
         if(Session.get('headerFx')){
             Session.set('headerFx',false);
             document.getElementById("header").style.backgroundColor = "initial";
+            if(window.scrollY > 1972){
+                document.getElementById("header").style.backgroundColor = "white";
+            }
             $("#header img.topImg").toggleClass("transparent");
             $("#header img.bottomImg").toggleClass("transparent");
             var x = document.getElementsByClassName("shrink-a");
