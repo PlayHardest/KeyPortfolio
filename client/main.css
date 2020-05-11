@@ -1,7 +1,8 @@
 html{
-	-webkit-backdrop-filter: saturate(50%) blur(20px);
-	backdrop-filter: saturate(0%) blur(5px);
+	/*-webkit-backdrop-filter: saturate(0%) blur(5px);*/
+	/*backdrop-filter: saturate(0%) blur(5px);*/
 	transition: 0.35s;
+	background-image: url("images/Other/bg.png");
 }
 	/*html::before, html::after{
 			content: "";
@@ -20,31 +21,29 @@ html{
 
 
 body {
-	background-color: white;
+	/*background-color: white;*/
 	/*zbackground-image: url("images/Other/bg.jpg");*/
 	font-family: 'Eras ITC', sans-serif;
 	transition: 0.2s;
 }
 
 
-#header{
-	/*display: -moz-flex;
-	display: -webkit-flex;
-	display: -ms-flex;
-	display: flex;*/
-	/*padding: 1em;*/
+.transparent{
+	opacity: 0;
+}
 
+
+#header{
 	z-index: 10000;
-	/*background-color: white;*/
 	padding: 0em 0.5em;
 	width: 100%;
 	position: sticky;
-	transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, opacity 2s ease-in-out, transform 1s ease-in-out;;
+	-webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, opacity 2s ease-in-out, transform 1s ease-in-out;
+	-moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, opacity 2s ease-in-out, transform 1s ease-in-out;
+	-o-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, opacity 2s ease-in-out, transform 1s ease-in-out;
+	transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, opacity 2s ease-in-out, transform 1s ease-in-out;
 	opacity: 0;
 	transform: translateY(-50px);
-	/*position:fixed;
-	height:3.25em;
-	line-height: 3.25em;*/
 }
 
 	#header a{
@@ -70,8 +69,7 @@ body {
 		#header .shrink-a::after{
 			content: '';
 			display: inline-block;
-			/*width: 100%;*/
-			height: 5px;
+			height: 2px;
 			background-color: #f4b5ac;
 			top:1.5em; right:0; left:0; bottom:0;
 			z-index: 0;
@@ -100,7 +98,6 @@ body {
 			-webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
 			-ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
 			transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
-			/*padding: 2px 5px;*/
 			display: inline-block;
 			background-color:black;
 			color: white; 
@@ -120,20 +117,56 @@ body {
 		transition: opacity .35s ease-in-out;
 	}
 
-	#header img.transparent{
-		opacity: 0;
-	}
-	/*#header .logo-img{
-		height: 70px;
-		-webkit-transition: opacity .35s ease-in-out;
-		-moz-transition: opacity .35s ease-in-out;
-		-o-transition: opacity .35s ease-in-out;
-		transition: opacity .35s ease-in-out;
+#header-menu .header_nav_child_menu:hover .header_nav_child{
+	opacity: 1;
+	pointer-events: auto;
+	/*display: block;*/
+}
+
+#header-menu .header_nav_child{
+	-webkit-transition: opacity .35s ease-in-out, transform .35s ease-in-out, color .35s ease-in-out;
+	-moz-transition: opacity .35s ease-in-out, transform .35s ease-in-out, color .35s ease-in-out;
+	-o-transition: opacity .35s ease-in-out, transform .35s ease-in-out, color .35s ease-in-out;
+	transition: opacity .35s ease-in-out, transform .35s ease-in-out, color .35s ease-in-out;
+	opacity: 0;
+	z-index: -2;
+	display: none;
+	position: absolute;
+	display: inline-block;
+	pointer-events: none;
+}
+
+
+	#header-menu .header_nav_child .header_nav_option{
+		display: block;
+		padding: 0.5em;
+		
 	}
 
-		#header .logo-img.transparent{
-			opacity: 0;
-		}*/
+	#header-menu .header_nav_option:hover{
+		color : white !important;
+		position: relative;
+	}
+
+	#header-menu .header_nav_option::after{
+		content: '';
+		display: block;
+		background-color: #f4b5ac;
+		width:100%;
+
+		top:0; right:0; left:0; bottom:0;
+		z-index: -1;
+		position: absolute;
+		transform: scaleX(0);
+		transform-origin: 0% 50%;
+		-moz-transform-origin: 0 50%;
+		-webkit-transform-origin: 0 50%;
+		transition: all .35s;
+	}
+
+	#header-menu .header_nav_option:hover:after{
+		transform: scaleX(1);
+	}
 
 #splashscreen{
 	position: relative;
