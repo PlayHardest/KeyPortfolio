@@ -1,24 +1,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>KeyPortfolio</title>
-    <!-- <link href="https://fonts.googleapis.com/css?family=Kulim+Park&display=swap" rel="stylesheet"> -->
 </head>
 
-<body>
-    <div id="top-page">
+
+<template name="contact">
+    <div class="container">
+        <h1>contact</h1>
     </div>
-    {{> navBar}}
-    {{> splashScreen}}
-    {{> aboutMe}}
-    {{> gallery}}
-</body>
+</template>
 
 <template name="navBar">
     <div class="container-fluid sticky-top" style="padding-right: 0px !important; padding-left: 0px !important;">
         <header id="header">
             <div class="row no-gutters">
                 <div class="col-2">
-                    <a href="main.html">
+                    <a href="{{pathFor route='home'}}">
                         <img class="topImg" src ="images/Other/keyart2.png">
                         <img class="bottomImg transparent" src ="images/Other/keyart1.png">
                         <!-- <strong>KEEKS</strong>
@@ -29,20 +26,20 @@
                     <nav id="header-menu">
                         <ul class="nav justify-content-left">
                             <li class="nav-item">
-                                <a class="nav-link shrink-a scroll" href="#top-page">HOME</a>
+                                <a class="nav-link shrink-a" href="{{pathFor route='home'}}">HOME</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link shrink-a scroll" href="#aboutMe">ABOUT ARTIST</a>
+                                <a class="nav-link shrink-a" href="{{pathFor route='home'}}#aboutMe">ABOUT ARTIST</a>
                             </li>
                             <li class="nav-item header_nav_child_menu">
-                                <a class="nav-link shrink-a scroll" href="#gallery">PORTFOLIO</a>
-                                <div class="header_nav_child">
-                                    <a href="portfolio.html/" class="header_nav_option">DIGITAL ILLUSTRATIONS</a>
-                                    <a href="portfolio.html/" class="header_nav_option">TRADITIONAL ARTWORK</a>
-                                </div>
+                                <a class="nav-link shrink-a" href="{{pathFor route='portfolio'}}">PORTFOLIO</a>
+                                <!-- <div class="header_nav_child">
+                                    <a href="#" class="header_nav_option">DIGITAL ILLUSTRATIONS</a>
+                                    <a href="#" class="header_nav_option">TRADITIONAL ARTWORK</a>
+                                </div> -->
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link shrink-a scroll" href="#">CONTACT</a>
+                                <a class="nav-link shrink-a" href="{{pathFor route='contact'}}">CONTACT</a>
                             </li>
                         </ul>    
                     </nav>
@@ -50,15 +47,147 @@
             </div>
         </header>
     </div>
+    {{> yield}}
+    <hr />
 </template>
 
 
-<template name="splashScreen">
+
+<template name="home">
     <div id="splashscreen" class="container"> <!-- style="padding-top:15px;">  -->
         <div class="row">
             <div class="col text-center">
                 <img class="splash" src="images/Other/image1.png">
             </div>
+        </div>
+    </div>
+    {{> aboutMe}}
+    {{> gallery}}
+</template>
+
+<template name="portfolio">
+    <section id="digital">
+        <div class="container">
+            <div class="row">
+                <div class="col cat-heading">
+                    <h1>Digital Artwork</h1>    
+                </div>
+            </div>
+            {{> dPortfolio}}
+        </div>    
+    </section>
+
+    <section id="traditional">
+        <div class="container">
+            <div class="row">
+                <div class="col cat-heading">
+                    <h1>Traditional Artwork</h1>    
+                </div>
+            </div>
+            {{> tPortfolio}}
+        </div>    
+    </section>
+</template>
+
+<template name="tPortfolio">
+    <div class="card-columns custom-card-columns">
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src="images/Art/traditional/image1.jpeg" alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src="images/Art/traditional/image2.jpeg" alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image3.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image4.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image5.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image6.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image7.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image8.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image9.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image10.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image11.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image12.jpeg alt="Card image"></a>
+        </div>
+    </div>
+</template>
+
+<template name="dPortfolio">
+    <div class="card-columns custom-card-columns">
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src="images/Art/digital/image1.jpeg" alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src="images/Art/digital/image2.jpeg" alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image3.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image4.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image5.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image6.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image7.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image8.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image9.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image10.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image11.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image12.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image13.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image14.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image15.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image16.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image17.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image18.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image19.jpeg alt="Card image"></a>
         </div>
     </div>
 </template>

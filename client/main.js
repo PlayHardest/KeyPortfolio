@@ -6,13 +6,26 @@ import '../lib/collection.js';
 import './main.html';
 
 Session.set('headerFx',false);
+Session.set('currentPage',"home");
+
+Router.configure({
+    layoutTemplate: 'navBar'
+});
+
+Router.route('/contact');
+Router.route('/portfolio');
+Router.route('/', {
+    name: 'home',
+    template: 'home'
+});
+
+// Router.map(function(){
+//     this.route('contact');
+// });
+
 
 $(document).ready(function() {
-    $('#splashscreen .splash').css('opacity', '1');
-    $('#splashscreen .splash').css('transform', 'initial');
-    $('#header').css('opacity', '1');
-    $('#header').css('transform', 'initial');
-
+    
     var scrollLink = $('.scroll');
     //Smooth scrolling
     scrollLink.click(function(event) {
@@ -21,15 +34,42 @@ $(document).ready(function() {
             scrollTop: $(this.hash).offset().top//set scrollTop to the offset of the target location's top
         }, 1000)//complete the animation over 1s
     })
+
+    // var links = $("a");
+    // links.click(function(event) {
+    //     $("body,html").fadeOut();
+    //     $("body,html").fadeIn();
+    // })
 })
 
+Template.navBar.onRendered( function navBarOnRendered() {
+    console.log("navbar rendered");
+    $('#header').css('opacity', '1');
+    $('#header').css('transform', 'initial');
+})
+
+Template.home.onRendered( function homeOnRendered(){
+    console.log("home rendered");
+    $('#splashscreen .splash').css('opacity', '1');
+    $('#splashscreen .splash').css('transform', 'initial');
+})
+
+
+
+// Template.hello.onCreated(function helloOnCreated() {
+//   // counter starts at 0
+//   this.counter = new ReactiveVar(0);
+// });
 
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    var splashLink = document.getElementById("splashscreen");
+    // var splashLink = document.getElementById("splashscreen");
     // console.log("top of page -- ",window.scrollY,"::");
     // console.log($("#aboutMe").offset().top,"---",$("#gallery").offset().top);
+    if(Session.get('currentPage')=="home"){
+        console.log("You are on the homepage")
+    }
     if((window.scrollY > ($("#aboutMe").offset().top-200)) && (window.scrollY < ($("#gallery").offset().top-200))){
         console.log("change to black");
         if(!Session.get('headerFx')){
