@@ -3,6 +3,9 @@
     <title>KeyPortfolio</title>
 </head>
 
+<!-- <body class="is-preload">
+    {{> navBar}}
+</body> -->
 
 <template name="contact">
     <div class="container">
@@ -11,44 +14,76 @@
 </template>
 
 <template name="navBar">
-    <div class="container-fluid sticky-top" style="padding-right: 0px !important; padding-left: 0px !important;">
-        <header id="header">
-            <div class="row no-gutters">
-                <div class="col-2">
-                    <a href="{{pathFor route='home'}}">
-                        <img class="topImg" src ="images/Other/keyart2.png">
-                        <img class="bottomImg transparent" src ="images/Other/keyart1.png">
-                        <!-- <strong>KEEKS</strong>
-                        <span> ART</span> -->
-                    </a>
+    <div id="wrapper">
+        <div class="container-fluid sticky-top" style="padding-right: 0px !important; padding-left: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+            <header id="header">
+                <div class="row no-gutters">
+                    <div class="col-2">
+                        <a href="{{pathFor route='home'}}">
+                            <img class="topImg" src ="images/Other/keyart2.png">
+                            <img class="bottomImg transparent" src ="images/Other/keyart1.png">
+                            <!-- <strong>KEEKS</strong>
+                            <span> ART</span> -->
+                        </a>
+                    </div>
+                    <div class="col">
+                        <nav id="header-menu">
+                            <ul class="nav justify-content-left">
+                                <li class="nav-item">
+                                    <a class="nav-link shrink-a" href="{{pathFor route='home'}}">HOME</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link shrink-a" href="{{pathFor route='home'}}#aboutMe">ABOUT ARTIST</a>
+                                </li>
+                                <li class="nav-item header_nav_child_menu">
+                                    <a class="nav-link shrink-a" href="{{pathFor route='portfolio'}}">PORTFOLIO</a>
+                                    <!-- <div class="header_nav_child">
+                                        <a href="#" class="header_nav_option">DIGITAL ILLUSTRATIONS</a>
+                                        <a href="#" class="header_nav_option">TRADITIONAL ARTWORK</a>
+                                    </div> -->
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link shrink-a" href="{{pathFor route='contact'}}">CONTACT</a>
+                                </li>
+                            </ul>    
+                        </nav>
+                    </div>
                 </div>
+            </header>
+        </div>
+        {{> yield}}
+        <hr />
+        <div class="container">
+            <div class="row">
                 <div class="col">
-                    <nav id="header-menu">
-                        <ul class="nav justify-content-left">
+                    <nav>
+                        <ul class="nav justify-content-center">
                             <li class="nav-item">
-                                <a class="nav-link shrink-a" href="{{pathFor route='home'}}">HOME</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link shrink-a" href="{{pathFor route='home'}}#aboutMe">ABOUT ARTIST</a>
-                            </li>
-                            <li class="nav-item header_nav_child_menu">
-                                <a class="nav-link shrink-a" href="{{pathFor route='portfolio'}}">PORTFOLIO</a>
-                                <!-- <div class="header_nav_child">
-                                    <a href="#" class="header_nav_option">DIGITAL ILLUSTRATIONS</a>
-                                    <a href="#" class="header_nav_option">TRADITIONAL ARTWORK</a>
-                                </div> -->
+                                <a class="nav-link" href="#">
+                                    <img class="contact-item" src ="images/Other/instagram.png">
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link shrink-a" href="{{pathFor route='contact'}}">CONTACT</a>
+                                <a class="nav-link" href="#">
+                                    <img class="contact-item" src ="images/Other/twitter.png">
+                                </a>
                             </li>
-                        </ul>    
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img class="contact-item" src ="images/Other/mail.png">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img class="contact-item" src ="images/Other/shop.png">
+                                </a>
+                            </li>
+                        </ul>
                     </nav>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
-    {{> yield}}
-    <hr />
 </template>
 
 
@@ -73,7 +108,11 @@
                     <h1>Digital Artwork</h1>    
                 </div>
             </div>
-            {{> dPortfolio}}
+            <div class="row">
+                <div class="col">
+                    {{> dPortfolio}}
+                </div>
+            </div>
         </div>    
     </section>
 
@@ -84,113 +123,166 @@
                     <h1>Traditional Artwork</h1>    
                 </div>
             </div>
-            {{> tPortfolio}}
+            <div class="row">
+                <div class="col">
+                    {{> tPortfolio}}  
+                </div>
+            </div>
         </div>    
     </section>
 </template>
 
-<template name="tPortfolio">
+<template name="dPortfolio">
     <div class="card-columns custom-card-columns">
-        <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src="images/Art/traditional/image1.jpeg" alt="Card image"></a>
+        <div class="js-card card custom-card">
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src="images/Art/digital/image1.jpeg" alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src="images/Art/traditional/image2.jpeg" alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src="images/Art/digital/image2.jpeg" alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image3.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image3.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image4.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image4.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image5.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image5.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image6.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image6.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image7.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image7.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image8.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image8.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image9.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image9.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image10.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image10.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image11.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image11.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/traditional/image12.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image12.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image13.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image14.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image15.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image16.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image17.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image18.jpeg alt="Card image"></a>
+        </div>
+        <div class="card custom-card">
+            <a href="#" role="button" data-target="#dCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/digital/image19.jpeg alt="Card image"></a>
+        </div>
+    </div>
+    
+
+    <div class="modal fade" id="dCarouselModal" tabindex="-1" role="dialog" aria-labelledby="dCarouselModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div id="dCarousel" class="carousel slide custom-carousel" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="images/Art/digital/image1.jpeg">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="images/Art/digital/image2.jpeg">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="images/Art/digital/image3.jpeg">
+                    </div>
+                </div>
+                <a href="#dCarousel" class="carousel-control-prev" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a href="#dCarousel" class="carousel-control-next" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
     </div>
 </template>
 
-<template name="dPortfolio">
+
+<template name="tPortfolio">
     <div class="card-columns custom-card-columns">
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src="images/Art/digital/image1.jpeg" alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src="images/Art/traditional/image1.jpeg" alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src="images/Art/digital/image2.jpeg" alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src="images/Art/traditional/image2.jpeg" alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image3.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image3.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image4.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image4.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image5.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image5.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image6.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image6.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image7.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image7.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image8.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image8.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image9.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image9.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image10.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image10.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image11.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image11.jpeg alt="Card image"></a>
         </div>
         <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image12.jpeg alt="Card image"></a>
+            <a href="#" role="button" data-target="#tCarouselModal" data-toggle="modal"><img class="card-img card-img-custom" src=images/Art/traditional/image12.jpeg alt="Card image"></a>
         </div>
-        <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image13.jpeg alt="Card image"></a>
-        </div>
-        <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image14.jpeg alt="Card image"></a>
-        </div>
-        <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image15.jpeg alt="Card image"></a>
-        </div>
-        <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image16.jpeg alt="Card image"></a>
-        </div>
-        <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image17.jpeg alt="Card image"></a>
-        </div>
-        <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image18.jpeg alt="Card image"></a>
-        </div>
-        <div class="card custom-card">
-            <a href="main.html"><img class="card-img card-img-custom" src=images/Art/digital/image19.jpeg alt="Card image"></a>
+    </div>
+    
+    <div class="modal fade" id="tCarouselModal" tabindex="-1" role="dialog" aria-labelledby="tCarouselModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tCarouselModalLabel">Modal Title</h5>
+                    <button type="button" clas="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
+
+
 
 <template name="aboutMe">
     <section id="aboutMe">
@@ -225,22 +317,22 @@
             </div>
             <div class="card-columns card-columns-custom">
                 <div class="card custom-card">
-                    <a href="main.html"><img class="card-img card-img-custom" src="images/Art/art1.jpg" alt="Card image"></a>
+                    <a href="#"><img class="card-img card-img-custom" src="images/Art/art1.jpg" alt="Card image"></a>
                 </div>
                 <div class="card custom-card">
-                    <a href="main.html"><img class="card-img card-img-custom" src="images/Art/art2.jpg" alt="Card image"></a>
+                    <a href="#"><img class="card-img card-img-custom" src="images/Art/art2.jpg" alt="Card image"></a>
                 </div>
                 <div class="card custom-card">
-                    <a href="main.html"><img class="card-img card-img-custom" src="images/Art/art3.jpg" alt="Card image"></a>
+                    <a href="#"><img class="card-img card-img-custom" src="images/Art/art3.jpg" alt="Card image"></a>
                 </div>
                 <div class="card custom-card">
-                    <a href="main.html"><img class="card-img card-img-custom" src="images/Art/art4.jpg" alt="Card image"></a>
+                    <a href="#"><img class="card-img card-img-custom" src="images/Art/art4.jpg" alt="Card image"></a>
                 </div>
                 <div class="card custom-card">
-                    <a href="main.html"><img class="card-img card-img-custom" src="images/Art/art5.jpg" alt="Card image"></a>
+                    <a href="#"><img class="card-img card-img-custom" src="images/Art/art5.jpg" alt="Card image"></a>
                 </div>
                 <div class="card custom-card">
-                    <a href="main.html"><img class="card-img card-img-custom" src="images/Art/art6.jpg" alt="Card image"></a>
+                    <a href="#"><img class="card-img card-img-custom" src="images/Art/art6.jpg" alt="Card image"></a>
                 </div>
             </div>
         </div>    

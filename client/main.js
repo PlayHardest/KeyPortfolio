@@ -48,6 +48,7 @@ Template.navBar.onRendered( function navBarOnRendered() {
     $('#header').css('transform', 'initial');
 })
 
+
 Template.home.onRendered( function homeOnRendered(){
     console.log("home rendered");
     $('#splashscreen .splash').css('opacity', '1');
@@ -55,13 +56,45 @@ Template.home.onRendered( function homeOnRendered(){
 })
 
 
+Template.dPortfolio.events({
+    'click js-card'(event, instance) {
+        event.preventDefault();
+        // event.stopPropagation();
+        console.log("hey");
+        $('body').addClass('modal-active');
+    }
+});
+
 
 // Template.hello.onCreated(function helloOnCreated() {
 //   // counter starts at 0
 //   this.counter = new ReactiveVar(0);
 // });
 
-window.onscroll = function() {scrollFunction()};
+// Template.hello.helpers({
+//   counter() {
+//     return Template.instance().counter.get();
+//   },
+// });
+
+// Template.hello.events({
+//   'click button'(event, instance) {
+//     // increment the counter when button is clicked
+//     instance.counter.set(instance.counter.get() + 1);
+//   },
+// });
+
+//window.onscroll = function() {scrollFunction()};
+
+
+window.onload = function() {loadFunction()};
+
+function loadFunction() {
+    // $('body').addClass('modal-active');
+    // $('body').addClass('is-preload');
+    // $('body').removeClass('is-preload');
+    // console.log('removed is-preload');
+}
 
 function scrollFunction() {
     // var splashLink = document.getElementById("splashscreen");
@@ -124,6 +157,9 @@ function scrollFunction() {
 	} 
 }
 
+
+
+
 // Template.navBar.events({
 //     'hover '
 // })
@@ -157,26 +193,28 @@ Template.hello.events({
   },
 });*/
 
+
+
 // UI.registerHelper('imagePath',function(key){
 //     //Builds the Meteor.call url
-//     var $host = document.location.host;
-//     var $imgBaseUrl = '/images/Art';
-//     var $assetPath = $imgBaseUrl + key + '/';
+//     var host = document.location.host;
+//     var imgBaseUrl = '/images/Art';
+//     var assetPath = imgBaseUrl + key + '/';
 //     var idnum = 1;
-//     var url = 'http://' + $host +$assetPath + idnum +'.jpg';
+//     var url = 'http://' + host + assetPath + idnum +'.jpg';
 
 //     //Define the default image location
-//     var $assetPathDefault = $imgBaseUrl + 'default.jpg';
+//     var assetPathDefault = imgBaseUrl + 'default.jpg';
 
 //     //use meteor.call to make a client call a server-side method
 //     Meteor.call('checkIfImageExists', url, function(error,result) {
 //         if(false){
 //             console.log('Error');
-//             return $assetPathDefault;
+//             return assetPathDefault;
 //         } else {
 //             console.log('Result: ' + result.statusCode);
-//             console.log($assetPath);
-//             return $assetPath;
+//             console.log(assetPath);
+//             return assetPath;
 //         };
 //     });
 // });
