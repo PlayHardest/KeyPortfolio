@@ -89,7 +89,7 @@ img.contact-item{
 }
 
 .custom-carousel{
-	z-index: 1051;
+	pointer-events: auto;
 }
 
 /*.container-fluid{

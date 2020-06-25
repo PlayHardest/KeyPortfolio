@@ -12,6 +12,7 @@ Router.configure({
     layoutTemplate: 'navBar'
 });
 
+Router.route('/Admin');
 Router.route('/contact');
 Router.route('/portfolio');
 Router.route('/', {
@@ -19,34 +20,22 @@ Router.route('/', {
     template: 'home'
 });
 
-// Router.map(function(){
-//     this.route('contact');
-// });
+// $('#dCarousel').on('slide.bs.carousel', function (event) {
+//   var initiator = $(event.relatedTarget);
+//   console.log("hhey" + initiator);
+// })
 
+// $('#dCarouselModal').on('show.bs.modal', function (event) {
+//   var image = $(event.relatedTarget); // element that triggered the modal
+//   console.log("executed by " + image);
+//   //var recipient = button.data('whatever') // Extract info from data-* attributes
+// })
 
-$(document).ready(function() {
-    
-    var scrollLink = $('.scroll');
-    //Smooth scrolling
-    scrollLink.click(function(event) {
-        event.preventDefault();//prevent the default action associated with the event from happening
-        $('body,html').animate({//call the animate function on the contents of the body and html tags
-            scrollTop: $(this.hash).offset().top//set scrollTop to the offset of the target location's top
-        }, 1000)//complete the animation over 1s
-    })
-
-    // var links = $("a");
-    // links.click(function(event) {
-    //     $("body,html").fadeOut();
-    //     $("body,html").fadeIn();
-    // })
-})
-
-Template.navBar.onRendered( function navBarOnRendered() {
-    console.log("navbar rendered");
-    $('#header').css('opacity', '1');
-    $('#header').css('transform', 'initial');
-})
+// Template.navBar.onRendered( function navBarOnRendered() {
+//     console.log("navbar rendered");
+//     $('#header').css('opacity', '1');
+//     $('#header').css('transform', 'initial');
+// })
 
 
 Template.home.onRendered( function homeOnRendered(){
@@ -57,187 +46,24 @@ Template.home.onRendered( function homeOnRendered(){
 
 
 Template.dPortfolio.events({
-    'click js-card'(event, instance) {
-        event.preventDefault();
-        // event.stopPropagation();
-        console.log("hey");
-        $('body').addClass('modal-active');
+    'click .js-carousel'(e) {
+        console.log(e.target);
+        var number = Number(e.target.getAttribute('data-slide-to'));
+        console.log(number);
+        $('#dCarousel').carousel(number);
+        console.log("destination is " + number);
     }
 });
 
 
-// Template.hello.onCreated(function helloOnCreated() {
-//   // counter starts at 0
-//   this.counter = new ReactiveVar(0);
-// });
 
-// Template.hello.helpers({
-//   counter() {
-//     return Template.instance().counter.get();
-//   },
-// });
-
-// Template.hello.events({
-//   'click button'(event, instance) {
-//     // increment the counter when button is clicked
-//     instance.counter.set(instance.counter.get() + 1);
-//   },
-// });
-
-//window.onscroll = function() {scrollFunction()};
-
-
-window.onload = function() {loadFunction()};
-
-function loadFunction() {
-    // $('body').addClass('modal-active');
-    // $('body').addClass('is-preload');
-    // $('body').removeClass('is-preload');
-    // console.log('removed is-preload');
-}
-
-function scrollFunction() {
-    // var splashLink = document.getElementById("splashscreen");
-    // console.log("top of page -- ",window.scrollY,"::");
-    // console.log($("#aboutMe").offset().top,"---",$("#gallery").offset().top);
-    if(Session.get('currentPage')=="home"){
-        console.log("You are on the homepage")
+Template.Admin.events({
+    'click .js-AddNew'(e){
+        var img_val = $('#getImage1').val();
+        console.log(img_val);
+        $('#exampleimage').attr("src",img_val)
+        e.preventDefault()
     }
-    if((window.scrollY > ($("#aboutMe").offset().top-200)) && (window.scrollY < ($("#gallery").offset().top-200))){
-        console.log("change to black");
-        if(!Session.get('headerFx')){
-            Session.set('headerFx',true);
-            document.getElementById("header").style.backgroundColor = "black";
-            $("#header img.topImg").toggleClass("transparent");
-            $("#header img.bottomImg").toggleClass("transparent");
-            var x = document.getElementsByClassName("shrink-a");
-            for (var i =0; i< x.length;i++){
-                x[i].style.color="white";
-            }
-            var y = document.getElementsByClassName("header_nav_child");
-            for(var i=0;i<y.length;i++){
-                y[i].style.backgroundColor=document.getElementById("header").style.backgroundColor;
-            }
-            var z = document.getElementsByClassName("header_nav_option");
-            for(var i=0;i<z.length;i++){
-                z[i].style.color="white";
-            }
-            var k = document.getElementsByClassName("logo");
-            for (var i =0; i< k.length;i++){
-                k[i].style.color="white";
-            }
-        }
-    } else {
-        console.log("change to white");
-        if(Session.get('headerFx')){
-            Session.set('headerFx',false);
-            document.getElementById("header").style.backgroundColor = "initial";
-            if(window.scrollY > ($("#gallery").offset().top-200)){
-                document.getElementById("header").style.backgroundColor = "white";
-            }
-            $("#header img.topImg").toggleClass("transparent");
-            $("#header img.bottomImg").toggleClass("transparent");
-            var x = document.getElementsByClassName("shrink-a");
-            for (var i =0; i< x.length;i++){
-                x[i].style.color="initial";
-            }
-            var y = document.getElementsByClassName("header_nav_child");
-            for(var i=0;i<y.length;i++){
-                y[i].style.backgroundColor=document.getElementById("header").style.backgroundColor;
-            }
-            var z = document.getElementsByClassName("header_nav_option");
-            for(var i=0;i<z.length;i++){
-                z[i].style.color="initial";
-            }
-            var k = document.getElementsByClassName("logo");
-            for (var i =0; i< k.length;i++){
-                k[i].style.color="initial";
-            }
-        }
-	} 
-}
+})
 
 
-
-
-// Template.navBar.events({
-//     'hover '
-// })
-
-
-// Template.splashScreen.onCreated(function splashOnCreated() {
-//     document.getElementById("splashscreen").style.opacity="1";
-//     document.getElementById("splashscreen").style.transform="initial";
-// });
-/*
-
-
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
-
-getElementsByClassName
-
-
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});*/
-
-
-
-// UI.registerHelper('imagePath',function(key){
-//     //Builds the Meteor.call url
-//     var host = document.location.host;
-//     var imgBaseUrl = '/images/Art';
-//     var assetPath = imgBaseUrl + key + '/';
-//     var idnum = 1;
-//     var url = 'http://' + host + assetPath + idnum +'.jpg';
-
-//     //Define the default image location
-//     var assetPathDefault = imgBaseUrl + 'default.jpg';
-
-//     //use meteor.call to make a client call a server-side method
-//     Meteor.call('checkIfImageExists', url, function(error,result) {
-//         if(false){
-//             console.log('Error');
-//             return assetPathDefault;
-//         } else {
-//             console.log('Result: ' + result.statusCode);
-//             console.log(assetPath);
-//             return assetPath;
-//         };
-//     });
-// });
-
-// Future = Npm.require('fibrrs/future');
-
-// Meteor.methods({//Defines fuctions that can be invoked over the network by clients
-//     checkIfImageExists: function(url){
-//         check(url, String);
-//         var fut = new Future();
-//         this.unblock();
-//         HTTP.get(url, function (error,result) {
-//             if(!error) {
-//                 console.log('Found a file!: ' + url);
-//                 console.log('Result: ' + result.statusCode);
-//                 fut.return(false);
-//             } else {
-//                 console.log(error);
-//                 console.log('Error: ' + error);
-//                 fut.return (false);
-//             };
-//         });
-//         return fut.wait();
-//     }
-// })
-  
