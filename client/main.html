@@ -1,463 +1,573 @@
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>KeyPortfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<title>KeyPortfolio</title>
 </head>
 
 <!-- <body class="is-preload">
-    {{> navBar}}
+	{{> navBar}}
 </body> -->
 
 <template name="contact">
-    <div class="container">
-        <h1>Contact</h1>
-        <p>Get in touch with me by sending a message here or through my other social media at the bottom of the page!</p>
-        <form>
-            <div class="form-row">
-                <div class="col">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="ContacteeName" placeholder="Your Name">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="ContacteeEmail" placeholder="Your Email Address">
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <div class="form-group">
-                        <!-- <label for="ContacteeBody">Message</label> -->
-                        <textarea class="form-control" id="ContacteeBody" rows="7"></textarea>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <div class="row">
-            <div class="col align-self-start">
-                <button class="btn btn-primary js-email">
-                    Send Email
-                </button>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<h1>Contact</h1>
+		<p>Get in touch with me by sending a message here or through my other social media at the bottom of the page!</p>
+		<form>
+			<div class="form-row">
+				<div class="col">
+					<div class="form-group">
+						<input type="text" class="form-control" id="ContacteeName" placeholder="Your Name">
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<input type="text" class="form-control" id="ContacteeEmail" placeholder="Your Email Address">
+					</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<div class="form-group">
+						<!-- <label for="ContacteeBody">Message</label> -->
+						<textarea class="form-control" id="ContacteeBody" rows="7"></textarea>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			<div class="col align-self-start">
+				<button class="btn btn-primary js-email">
+					Send Email
+				</button>
+			</div>
+		</div>
+	</div>
 </template>
 
 
 
 <template name="navBar">
-    <div class="container-fluid sticky-top" style="padding-right: 0px !important; padding-left: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
-        <header id="header">
-            <div class="row no-gutters">
-                <div class="col-2">
-                    <a href="{{pathFor route='home'}}">
-                        <img class="topImg" src ="images/Other/keyart2.png">
-                        <img class="bottomImg transparent" src ="images/Other/keyart1.png">
-                        <!-- <strong>KEEKS</strong>
-                        <span> ART</span> -->
-                    </a>
-                </div>
-                <div class="col">
-                    <nav id="header-menu">
-                        <ul class="nav justify-content-left">
-                            <li class="nav-item">
-                                <a class="nav-link shrink-a" href="{{pathFor route='home'}}">HOME</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link shrink-a" href="{{pathFor route='home'}}#aboutMe">ABOUT ARTIST</a>
-                            </li>
-                            <li class="nav-item header_nav_child_menu">
-                                <a class="nav-link shrink-a" href="{{pathFor route='portfolio'}}">PORTFOLIO</a>
-                                <!-- <div class="header_nav_child">
-                                    <a href="#" class="header_nav_option">DIGITAL ILLUSTRATIONS</a>
-                                    <a href="#" class="header_nav_option">TRADITIONAL ARTWORK</a>
-                                </div> -->
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link shrink-a" href="{{pathFor route='contact'}}">CONTACT</a>
-                            </li>
-                        </ul>    
-                    </nav>
-                </div>
-            </div>
-        </header>
-    </div>
-    {{> yield}}
-    <hr />
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <nav>
-                    <ul class="nav justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.instagram.com/keeksart/">
-                                <img class="contact-item" src ="images/Other/instagram.png">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://twitter.com/1keeksart">
-                                <img class="contact-item" src ="images/Other/twitter.png">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <img class="contact-item" src ="images/Other/mail.png">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <img class="contact-item" src ="images/Other/shop.png">
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
+	<div class="container-fluid" style="padding-right: 0px !important; padding-left: 0px !important; margin-left: 0px !important; margin-right: 0px !important;">
+		<header id="header">
+			<div class="row no-gutters">
+				<div class="col-2">
+					<a href="{{pathFor route='home'}}">
+						<img class="topImg" src ="images/Other/keyart1.png">
+						<img class="bottomImg" src ="images/Other/keyart2.png">
+						<!-- <strong>KEEKS</strong>
+						<span> ART</span> -->
+					</a>
+				</div>
+				<div class="col">
+					<nav id="header-menu">
+						<ul class="nav justify-content-end">
+							<!-- <li class="nav-item">
+								<a class="nav-link shrink-a" href="{{pathFor route='home'}}">HOME</a>
+							</li> -->
+							<li class="nav-item">
+								<a class="nav-link shrink-a" href="{{pathFor route='home'}}#aboutMe">ABOUT ARTIST</a>
+							</li>
+							<li class="nav-item header_nav_child_menu">
+								<a class="nav-link shrink-a" href="{{pathFor route='portfolio'}}">PORTFOLIO</a>
+								<!-- <div class="header_nav_child">
+									<a href="#" class="header_nav_option">DIGITAL ILLUSTRATIONS</a>
+									<a href="#" class="header_nav_option">TRADITIONAL ARTWORK</a>
+								</div> -->
+							</li>
+							<li class="nav-item">
+								<a class="nav-link shrink-a" href="{{pathFor route='contact'}}">CONTACT</a>
+							</li>
+						</ul>    
+					</nav>
+				</div>
+			</div>
+		</header>
+	</div>
+	{{> yield}}
+	<hr />
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<nav>
+					<ul class="nav justify-content-center">
+						<li class="nav-item">
+							<a class="nav-link" href="https://www.instagram.com/keeksart/">
+								<img class="contact-item" src ="images/Other/instagram.png">
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://twitter.com/1keeksart">
+								<img class="contact-item" src ="images/Other/twitter.png">
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<img class="contact-item" src ="images/Other/mail.png">
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<img class="contact-item" src ="images/Other/shop.png">
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
 </template>
 
 <template name="Admin">
-    <div class="container">
-        <form>
-            <div class="form-row">
-                <div class="col">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="NewArtworkName" placeholder="Artwork Name">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input js-deactivateText" type="checkbox" id="showName" value="option2">
-                        <label class="form-check-label" for="showName">Hide Artwork Name</label>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="form-row">
-                <div class="col">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="getImage1" placeholder="Paste file URL here">
-                    </div>
-                </div>
-            </div> -->
-            <div class="form-row">
-                <div class="col">
-                    <div class="form-group">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">$</span>
-                            </div>
-                            <input type="number" class="form-control" id="NewArtworkPrice" placeholder="Artwork Price" disabled>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input js-deactivatePrice" type="checkbox" id="addToShop">
-                        <label class="form-check-label" for="addToShop">Available on online store</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <select class="custom-select" id="setCategory">
-                        <option value="0" selected>Select the category of the artwork</option>
-                        <option value="1">Digital Artwork</option>
-                        <option value="2">Traditional Artwork</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <form>
-                        <div class="form-group">
-                            <label for="getImage1">Select the image file</label>
-                            <input type="file" class="form-control-file" id="getImage1">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </form>
-        <button class="btn btn-primary js-AddNew">Save</button>
-        <div class="row">
-            <div class="col">
-                <button class="btn btn-primary js-emailTest">
-                    Test Email functionality
-                </button>
-            </div>
-        </div>
-        <hr />
-        <h1 class="cat-heading">Digital Entries</h1>
-        <div class="card-columns custom-card-columns">
-            {{#each PreviewAllDigital}}
-            <div id="{{_id}}" class="card custom-card">
-                <a href="" class="js-dcarousel" data-target="#dCarouselModal" data-toggle="modal"><img data-slide-to="{{SlideTo}}" class="card-img card-img-custom" src={{Image}} alt="Image not found"></a>
-                <button class = "btn btn-secondary js-delete">Delete</button>
-            </div>
-            {{/each}}
-        </div>
+	<div class="container">
+		<form>
+			<div class="form-row">
+				<div class="col">
+					<div class="form-group">
+						<input type="text" class="form-control" id="NewArtworkName" placeholder="Artwork Name">
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input js-deactivateText" type="checkbox" id="showName" value="option2">
+						<label class="form-check-label" for="showName">Hide Artwork Name</label>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="form-row">
+				<div class="col">
+					<div class="form-group">
+						<input type="text" class="form-control" id="getImage1" placeholder="Paste file URL here">
+					</div>
+				</div>
+			</div> -->
+			<div class="form-row">
+				<div class="col">
+					<div class="form-group">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1">$</span>
+							</div>
+							<input type="number" class="form-control" id="NewArtworkPrice" placeholder="Artwork Price" disabled>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input js-deactivatePrice" type="checkbox" id="addToShop">
+						<label class="form-check-label" for="addToShop">Available on online store</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<select class="custom-select" id="setCategory">
+						<option value="0" selected>Select the category of the artwork</option>
+						<option value="1">Digital Artwork</option>
+						<option value="2">Traditional Artwork</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<form>
+						<div class="form-group">
+							<label for="getImage1">Select the image file</label>
+							<input type="file" class="form-control-file" id="getImage1">
+						</div>
+					</form>
+				</div>
+			</div>
+		</form>
+		<button class="btn btn-primary js-AddNew">Save</button>
+		<div class="row">
+			<div class="col">
+				<button class="btn btn-primary js-emailTest">
+					Test Email functionality
+				</button>
+			</div>
+		</div>
+		<hr />
+		<h1 class="cat-heading">Shop Entries</h1>
+		<div class="album py-5">
+			<div class="row">
+				{{#each PreviewAllShopItems}}
+					<div class="col-md-4">
+						<div id="{{_id}}" class="card shop-card" style="width: 18rem;">
+							<div class="modal fade bd-example-modal-lg" id="shopItemModal{{_id}}" tabindex="-1" role="dialog" aria-labelledby="shopItemModal{{_id}}" aria-hidden="true">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">{{Name}} Details</h5>
+											<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="row">
+												<div class="col">
+													<form>
+														<div class="form-group">
+															<div class="input-group mb-3">
+																<div class="input-group-prepend">
+																	<span class="input-group-text" id="basic-addon1">Name</span>
+																</div>
+																<input type="text" class="form-control" id="{{_id}}Name" placeholder="{{Name}}">
 
-        <div class="modal fade" id="dCarouselModal" tabindex="-1" role="dialog" aria-labelledby="dCarouselModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div id="dCarousel" class="carousel slide custom-carousel" data-ride="carousel" data-interval="false">
-                    <div class="carousel-inner">
-                        {{#each PreviewAllDigital}}
-                            {{#if SlideTo}}
-                                <div id="modal{{_id}}" class="carousel-item">
-                                    <img class="d-block w-100" src={{Image}}>
-                                </div>
-                            {{else}}
-                                <div id="modal{{_id}}" class="carousel-item active">
-                                    <img class="d-block w-100" src={{Image}}>
-                                </div>
-                            {{/if}}
-                        {{/each}}
-                    </div>
-                    <a href="#dCarousel" class="carousel-control-prev" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a href="#dCarousel" class="carousel-control-next" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <hr />
-        <h1 class="cat-heading">Traditional Entries</h1>
-        <div class="card-columns custom-card-columns">
-            {{#each PreviewAllTraditional}}
-            <div id="{{_id}}" class="card custom-card">
-                <a href="" class="js-tcarousel" data-target="#tCarouselModal" data-toggle="modal"><img data-slide-to="{{SlideTo}}" class="card-img card-img-custom" src={{Image}} alt="Image not found"></a>
-                <button class = "btn btn-secondary js-delete">Delete</button>
-            </div>
-            {{/each}}
-        </div>
+																<div class="input-group-prepend">
+																	<span class="input-group-text" id="basic-addon1">Main Image</span>
+																</div>
+																<input type="text" class="form-control" id="{{_id}}Image" placeholder="{{Image}}">
+															</div>
+														</div>
 
-        <div class="modal fade" id="tCarouselModal" tabindex="-1" role="dialog" aria-labelledby="tCarouselModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div id="tCarousel" class="carousel slide custom-carousel" data-ride="carousel" data-interval="false">
-                    <div class="carousel-inner">
-                        {{#each PreviewAllTraditional}}
-                            {{#if SlideTo}}
-                                <div id="modal{{_id}}" class="carousel-item">
-                                    <img class="d-block w-100" src={{Image}}>
-                                </div>
-                            {{else}}
-                                <div id="modal{{_id}}" class="carousel-item active">
-                                    <img class="d-block w-100" src={{Image}}>
-                                </div>
-                            {{/if}}
-                        {{/each}}
-                    </div>
-                    <a href="#tCarousel" class="carousel-control-prev" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a href="#dCarousel" class="carousel-control-next" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+														<div class="form-group">
+															<div class="input-group mb-3">
+																<div class="input-group-prepend">
+																	<span class="input-group-text" id="basic-addon1">Price</span>
+																</div>
+																<input type="number" class="form-control" id="{{_id}}Price" placeholder="{{Price}}">
+
+																<div class="input-group-prepend">
+																	<span class="input-group-text" id="basic-addon1">Stock</span>
+																</div>
+																<input type="number" class="form-control" id="{{_id}}Stock" placeholder="{{InStock}}">
+															</div>
+														</div>
+													</form>
+												</div>
+											<!-- <div class="row">
+												<div class="col-2">
+													Secondary images go here
+												</div>
+											</div> -->
+												<div class="w-100"></div>
+												<div class="col">
+													<form>
+														<div class="form-check form-check-inline">
+															<input class="form-check-input" type="checkbox" id="delete{{_id}}">
+															<label class="form-check-label" for="delete{{_id}}">Delete Record</label>
+														</div>
+													</form>
+												</div>
+											</div>
+											<hr />
+											<div class="row">
+												<div class="col">
+													<span>
+														<button class = "btn btn-success js-edit" data-dismiss="modal">Save</button>
+														<button data-dismiss="modal" class = "btn btn-secondary">Cancel</button>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<a href="" data-target="#shopItemModal{{_id}}" data-toggle="modal"><img src={{Image}} class="card-img-top" alt="..."></a>
+							<div class="shop-card-body">
+								<a href="#" class="card-text text-center">{{Name}}</a>
+								{{#if InStock}}
+									<p class="card-text text-center" style="color: green">${{Price}}</p>
+								{{else}}
+									<p class="card-text text-center" style="color: red">Out of Stock</p>
+								{{/if}}
+							</div>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+		<h1 class="cat-heading">Digital Entries</h1>
+		<div class="card-columns custom-card-columns">
+			{{#each PreviewAllDigital}}
+			<div id="{{_id}}" class="card custom-card">
+				<a href="" class="js-dcarousel" data-target="#dCarouselModal" data-toggle="modal"><img data-slide-to="{{SlideTo}}" class="card-img card-img-custom" src={{Image}} alt="Image not found"></a>
+				<button class = "btn btn-secondary js-delete">Delete</button>
+			</div>
+			{{/each}}
+		</div>
+
+		<div class="modal fade" id="dCarouselModal" tabindex="-1" role="dialog" aria-labelledby="dCarouselModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div id="dCarousel" class="carousel slide custom-carousel" data-ride="carousel" data-interval="false">
+					<div class="carousel-inner">
+						{{#each PreviewAllDigital}}
+							{{#if SlideTo}}
+								<div id="modal{{_id}}" class="carousel-item">
+									<img class="d-block w-100" src={{Image}}>
+								</div>
+							{{else}}
+								<div id="modal{{_id}}" class="carousel-item active">
+									<img class="d-block w-100" src={{Image}}>
+								</div>
+							{{/if}}
+						{{/each}}
+					</div>
+					<a href="#dCarousel" class="carousel-control-prev" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a href="#dCarousel" class="carousel-control-next" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<h1 class="cat-heading">Traditional Entries</h1>
+		<div class="card-columns custom-card-columns">
+			{{#each PreviewAllTraditional}}
+			<div id="{{_id}}" class="card custom-card">
+				<a href="" class="js-tcarousel" data-target="#tCarouselModal" data-toggle="modal"><img data-slide-to="{{SlideTo}}" class="card-img card-img-custom" src={{Image}} alt="Image not found"></a>
+				<button class = "btn btn-secondary js-delete">Delete</button>
+			</div>
+			{{/each}}
+		</div>
+
+		<div class="modal fade" id="tCarouselModal" tabindex="-1" role="dialog" aria-labelledby="tCarouselModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div id="tCarousel" class="carousel slide custom-carousel" data-ride="carousel" data-interval="false">
+					<div class="carousel-inner">
+						{{#each PreviewAllTraditional}}
+							{{#if SlideTo}}
+								<div id="modal{{_id}}" class="carousel-item">
+									<img class="d-block w-100" src={{Image}}>
+								</div>
+							{{else}}
+								<div id="modal{{_id}}" class="carousel-item active">
+									<img class="d-block w-100" src={{Image}}>
+								</div>
+							{{/if}}
+						{{/each}}
+					</div>
+					<a href="#tCarousel" class="carousel-control-prev" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a href="#dCarousel" class="carousel-control-next" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <template name="shop">
-    <div class="album py-5">
-        <div class="container">
-            <div class="row">
-                {{#each ShowAllShopItems}}
-                    <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                          <img src="..." class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          </div>
-                        </div>
-                    </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
+	<div class="album py-5">
+		<div class="container">
+			<div class="row">
+				{{#each ShowAllShopItems}}
+					<div class="col-md-4">
+						<div id="{{_id}}" class="card shop-card" style="width: 18rem;">
+							<div class="pic-box">
+								<img src={{Image}} class="card-img-top" alt="...">
+								<!-- {{#if InStock}}
+									<button class="btn" >Buy Now</button>
+								{{else}}
+									<button class="btn" disabled>Out of Stock</button>
+								{{/if}} -->
+							</div>
+							<div class="shop-card-body">
+								<div class="ItemLabel">
+									<a href="#" class="card-text">{{Name}}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
 </template>
 
 <template name="home">
-    <div id="splashscreen" class="container"> <!-- style="padding-top:15px;">  -->
-        <div class="row">
-            <div class="col text-center">
-                <img class="splash" src="images/Other/image1.png">
-            </div>
-        </div>
-    </div>
-    {{> aboutMe}}
-    {{> gallery}}
+	<div id="splashscreen" class="container"> <!-- style="padding-top:15px;">  -->
+		<div class="row">
+			<div class="col text-center">
+				<img class="splash" src="images/Other/image1.png">
+			</div>
+		</div>
+	</div>
+	{{> aboutMe}}
+	{{> gallery}}
 </template>
 
 <template name="portfolio">
-    <section id="digital" class="h-change1">
-        <div class="container">
-            <div class="row">
-                <div class="col cat-heading">
-                    <h1>Digital Artwork</h1>    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{> dPortfolio}}
-                </div>
-            </div>
-        </div>    
-    </section>
+	<section id="digital" class="h-change1">
+		<div class="container">
+			<div class="row">
+				<div class="col cat-heading">
+					<h1>Digital Artwork</h1>    
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					{{> dPortfolio}}
+				</div>
+			</div>
+		</div>    
+	</section>
 
-    <section id="traditional" class="h-change2">
-        <div class="container">
-            <div class="row">
-                <div class="col cat-heading">
-                    <h1>Traditional Artwork</h1>    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    {{> tPortfolio}}  
-                </div>
-            </div>
-        </div>    
-    </section>
+	<section id="traditional" class="h-change2">
+		<div class="container">
+			<div class="row">
+				<div class="col cat-heading">
+					<h1>Traditional Artwork</h1>    
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					{{> tPortfolio}}  
+				</div>
+			</div>
+		</div>    
+	</section>
 </template>
 
 <template name="dPortfolio">
-    <div class="card-columns custom-card-columns">
-        {{#each AllDigital}}
-        <div id="{{_id}}" class="card custom-card">
-            <a href="" class="js-dcarousel" data-target="#dCarouselModal" data-toggle="modal"><img data-slide-to="{{SlideTo}}" class="card-img card-img-custom" src={{Image}} alt="Image not found"></a>
-        </div>
-        {{/each}}
-    </div>
+	<div class="card-columns custom-card-columns">
+		{{#each AllDigital}}
+		<div id="{{_id}}" class="card custom-card">
+			<a href="" class="js-dcarousel" data-target="#dCarouselModal" data-toggle="modal"><img data-slide-to="{{SlideTo}}" class="card-img card-img-custom" src={{Image}} alt="Image not found"></a>
+		</div>
+		{{/each}}
+	</div>
 
-    <div class="modal fade" id="dCarouselModal" tabindex="-1" role="dialog" aria-labelledby="dCarouselModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div id="dCarousel" class="carousel slide custom-carousel" data-ride="carousel" data-interval="false">
-                <div class="carousel-inner">
-                    {{#each AllDigital}}
-                        {{#if SlideTo}}
-                            <div id="modal{{_id}}" class="carousel-item">
-                                <img class="d-block w-100" src={{Image}}>
-                            </div>
-                        {{else}}
-                            <div id="modal{{_id}}" class="carousel-item active">
-                                <img class="d-block w-100" src={{Image}}>
-                            </div>
-                        {{/if}}
-                    {{/each}}
-                </div>
-                <a href="#dCarousel" class="carousel-control-prev" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a href="#dCarousel" class="carousel-control-next" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
+	<div class="modal fade" id="dCarouselModal" tabindex="-1" role="dialog" aria-labelledby="dCarouselModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div id="dCarousel" class="carousel slide custom-carousel" data-ride="carousel" data-interval="false">
+				<div class="carousel-inner">
+					{{#each AllDigital}}
+						{{#if SlideTo}}
+							<div id="modal{{_id}}" class="carousel-item">
+								<img class="d-block w-100" src={{Image}}>
+							</div>
+						{{else}}
+							<div id="modal{{_id}}" class="carousel-item active">
+								<img class="d-block w-100" src={{Image}}>
+							</div>
+						{{/if}}
+					{{/each}}
+				</div>
+				<a href="#dCarousel" class="carousel-control-prev" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a href="#dCarousel" class="carousel-control-next" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	</div>
 </template>
 
 
 <template name="tPortfolio">
-    <div class="card-columns custom-card-columns">
-        {{#each AllTraditional}}
-        <div id="{{_id}}" class="card custom-card">
-            <a href="" class="js-tcarousel" data-target="#tCarouselModal" data-toggle="modal"><img data-slide-to="{{SlideTo}}" class="card-img card-img-custom" src={{Image}} alt="Image not found"></a>
-        </div>
-        {{/each}}
-    </div>
+	<div class="card-columns custom-card-columns">
+		{{#each AllTraditional}}
+		<div id="{{_id}}" class="card custom-card">
+			<a href="" class="js-tcarousel" data-target="#tCarouselModal" data-toggle="modal"><img data-slide-to="{{SlideTo}}" class="card-img card-img-custom" src={{Image}} alt="Image not found"></a>
+		</div>
+		{{/each}}
+	</div>
 
-    <div class="modal fade" id="tCarouselModal" tabindex="-1" role="dialog" aria-labelledby="tCarouselModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div id="tCarousel" class="carousel slide custom-carousel" data-ride="carousel" data-interval="false">
-                <div class="carousel-inner">
-                    {{#each AllTraditional}}
-                        {{#if SlideTo}}
-                            <div id="modal{{_id}}" class="carousel-item">
-                                <img class="d-block w-100" src={{Image}}>
-                            </div>
-                        {{else}}
-                            <div id="modal{{_id}}" class="carousel-item active">
-                                <img class="d-block w-100" src={{Image}}>
-                            </div>
-                        {{/if}}
-                    {{/each}}
-                </div>
-                <a href="#tCarousel" class="carousel-control-prev" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a href="#dCarousel" class="carousel-control-next" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
+	<div class="modal fade" id="tCarouselModal" tabindex="-1" role="dialog" aria-labelledby="tCarouselModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div id="tCarousel" class="carousel slide custom-carousel" data-ride="carousel" data-interval="false">
+				<div class="carousel-inner">
+					{{#each AllTraditional}}
+						{{#if SlideTo}}
+							<div id="modal{{_id}}" class="carousel-item">
+								<img class="d-block w-100" src={{Image}}>
+							</div>
+						{{else}}
+							<div id="modal{{_id}}" class="carousel-item active">
+								<img class="d-block w-100" src={{Image}}>
+							</div>
+						{{/if}}
+					{{/each}}
+				</div>
+				<a href="#tCarousel" class="carousel-control-prev" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a href="#dCarousel" class="carousel-control-next" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	</div>
 </template>
 
 
 
 <template name="aboutMe">
-    <section id="aboutMe" class="h-change1">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1 class="cat-heading">About Me</h1>
-                    <p>
-                        Lorem ipsum dolor sit amest, consectetur adipiscing elit. Nullam pellentesque mauris vel enim suscipit porttitor ut sit amet ligula. In tellus metus, consectetur ut tortor eget, venenatis mollis enim. Duis eget lorem ac nisi fringilla varius et id metus. Sed quam eros, volutpat et nulla ut, aliquet tempus est. Nunc a dictum quam. Suspendisse dignissim nisi vitae odio pretium lobortis. Praesent ultricies tortor a tempor iaculis. Maecenas mollis placerat sapien vel tincidunt. Aenean et pulvinar turpis.
-                        Nulla fringilla libero at justo feugiat, at malesuada ipsum euismod. Aliquam maximus tempus sapien ut ullamcorper. Pellentesque ac ex nisi. Integer vestibulum lacus tempor ante pharetra, a maximus risus bibendum. Ut ornare felis non erat cursus, eget consectetur mauris dapibus. Morbi ultrices purus nec cursus cursus. Pellentesque turpis enim, posuere vitae ante eleifend, porttitor semper nulla. Mauris viverra lacus vel euismod porttitor. Vestibulum est augue, consequat ac arcu vestibulum, luctus vestibulum eros. Ut at eros dictum, eleifend dolor luctus, imperdiet est. Nam a lacus dolor. Fusce aliquam mi eu odio gravida pellentesque.
-                    </p>
-                    <br>
-                    <br>
-                    <h1 class="cat-heading">Why You Should Hire Me</h1>
-                    <p>
-                        Lorem ipsum dolor sit amest, consectetur adipiscing elit. Nullam pellentesque mauris vel enim suscipit porttitor ut sit amet ligula. In tellus metus, consectetur ut tortor eget, venenatis mollis enim. Duis eget lorem ac nisi fringilla varius et id metus. Sed quam eros, volutpat et nulla ut, aliquet tempus est. Nunc a dictum quam. Suspendisse dignissim nisi vitae odio pretium lobortis. Praesent ultricies tortor a tempor iaculis. Maecenas mollis placerat sapien vel tincidunt. Aenean et pulvinar turpis.
-                        Nulla fringilla libero at justo feugiat, at malesuada ipsum euismod. Aliquam maximus tempus sapien ut ullamcorper. Pellentesque ac ex nisi. Integer vestibulum lacus tempor ante pharetra, a maximus risus bibendum. Ut ornare felis non erat cursus, eget consectetur mauris dapibus. Morbi ultrices purus nec cursus cursus. Pellentesque turpis enim, posuere vitae ante eleifend, porttitor semper nulla. Mauris viverra lacus vel euismod porttitor. Vestibulum est augue, consequat ac arcu vestibulum, luctus vestibulum eros. Ut at eros dictum, eleifend dolor luctus, imperdiet est. Nam a lacus dolor. Fusce aliquam mi eu odio gravida pellentesque.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+	<section id="aboutMe" class="h-change1">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h1 class="cat-heading">Meet the Artist</h1>
+					<p>
+						Keyonne Yarde is a 23 year old Barbadian born and raised Illustrator who can be found as KeeksArt on most social media. She completed her studies at The Barbados Community College, where she was awarded an Associates degree in Visual Arts in 2015 and has ever since been self teaching.<br><br>
+						She is versatile when it comes to artistic media; always willing to try new things and expand her skills. As of recent, she has been focusing on pointillism following her urge tocreate something that would be mesmerizing and carry an exceptional attention to detailusing just black and white.<br><br>
+						However, since she loves colours, she tries to incorporate some in most of her pointillism pieces. Pointillism is a shading technique that uses dots to create an image. As opposed to using paint as originally developed by Georges Seurat, she uses pens. It can be used for hyper-realism, or for illustrations, which she hopes to master in the near future. Keeks uses pointillism as her outlet to stand out from the crowd. It has become a unique source of therapy for her.</p><br><br>
+						<blockquote class="blockquote text-right">
+							<p style="color:#f4b5ac; font-style: italic;" class="mb-0">“There is something about listening to my pen nib repeatedly beat against the paper that just slows the world down.”</p>
+							<footer class="blockquote-footer">Keeks</footer>
+						</blockquote><br><br>
+						<!-- <span style="color:#f4b5ac; font-style: italic; font-size: 150%;"> - </span> -->
+						<p>She has also recently began practice with Digital art using the app procreate and finds it a refreshing change from the tedious work of pointillism as it can be a bit more fast paced. You hear all the time that art and artists will change the world, and the fact is they have and will continue to do so.<br><br>
+						We live in a world that is dynamic; constantly changing with each passing minute, and one direction that change has been taking is towards creativity. She is still trying to find her voice with her art, but aims to use her art as a way to make people smile, and she will continue to do so through its evolution process.”<br><br>
+						She has had pieces on display at “The Anonymous Charity Art Show” at The Frame & Art Co., Grande Salle “Crop Over Visual Arts Festival” and “Home” at Norman Centre.<br><br>
+					</p>
+					<!-- <br>
+					<br>
+					<h1 class="cat-heading">Why You Should Hire Me</h1>
+					<p>
+						Lorem ipsum dolor sit amest, consectetur adipiscing elit. Nullam pellentesque mauris vel enim suscipit porttitor ut sit amet ligula. In tellus metus, consectetur ut tortor eget, venenatis mollis enim. Duis eget lorem ac nisi fringilla varius et id metus. Sed quam eros, volutpat et nulla ut, aliquet tempus est. Nunc a dictum quam. Suspendisse dignissim nisi vitae odio pretium lobortis. Praesent ultricies tortor a tempor iaculis. Maecenas mollis placerat sapien vel tincidunt. Aenean et pulvinar turpis.
+						Nulla fringilla libero at justo feugiat, at malesuada ipsum euismod. Aliquam maximus tempus sapien ut ullamcorper. Pellentesque ac ex nisi. Integer vestibulum lacus tempor ante pharetra, a maximus risus bibendum. Ut ornare felis non erat cursus, eget consectetur mauris dapibus. Morbi ultrices purus nec cursus cursus. Pellentesque turpis enim, posuere vitae ante eleifend, porttitor semper nulla. Mauris viverra lacus vel euismod porttitor. Vestibulum est augue, consequat ac arcu vestibulum, luctus vestibulum eros. Ut at eros dictum, eleifend dolor luctus, imperdiet est. Nam a lacus dolor. Fusce aliquam mi eu odio gravida pellentesque.
+					</p> -->
+				</div>
+			</div>
+		</div>
+	</section>
 </template>
 
 <template name="gallery">
-    <section id="gallery" class="h-change2">
-        <div class="container">
-            <div class="row">
-                <div class="col cat-heading">
-                    <h1>Gallery</h1>    
-                </div>
-            </div>
-            <div class="card-columns card-columns-custom">
-                <div class="card custom-card">
-                    <a href="#"><img class="card-img card-img-custom" src="images/Art/traditional/art1.jpg" alt="Card image"></a>
-                </div>
-                <div class="card custom-card">
-                    <a href="#"><img class="card-img card-img-custom" src="images/Art/traditional/art2.jpg" alt="Card image"></a>
-                </div>
-                <div class="card custom-card">
-                    <a href="#"><img class="card-img card-img-custom" src="images/Art/traditional/art3.jpg" alt="Card image"></a>
-                </div>
-                <div class="card custom-card">
-                    <a href="#"><img class="card-img card-img-custom" src="images/Art/traditional/art4.jpg" alt="Card image"></a>
-                </div>
-                <div class="card custom-card">
-                    <a href="#"><img class="card-img card-img-custom" src="images/Art/traditional/art5.jpg" alt="Card image"></a>
-                </div>
-                <div class="card custom-card">
-                    <a href="#"><img class="card-img card-img-custom" src="images/Art/traditional/art6.jpg" alt="Card image"></a>
-                </div>
-            </div>
-        </div>    
-    </section>
+	<section id="gallery" class="h-change2">
+		<div class="container">
+			<div class="row">
+				<div class="col cat-heading">
+					<h1>Gallery</h1>    
+				</div>
+			</div>
+			<div class="card-columns card-columns-custom">
+				<div class="card custom-card">
+					<a href="{{pathFor route='portfolio'}}#header"><img class="card-img card-img-custom" src="images/Art/traditional/art1.jpg" alt="Card image"></a>
+				</div>
+				<div class="card custom-card">
+					<a href="{{pathFor route='portfolio'}}#header"><img class="card-img card-img-custom" src="images/Art/traditional/art2.jpg" alt="Card image"></a>
+				</div>
+				<div class="card custom-card">
+					<a href="{{pathFor route='portfolio'}}#header"><img class="card-img card-img-custom" src="images/Art/traditional/art3.jpg" alt="Card image"></a>
+				</div>
+				<div class="card custom-card">
+					<a href="{{pathFor route='portfolio'}}#header"><img class="card-img card-img-custom" src="images/Art/traditional/art4.jpg" alt="Card image"></a>
+				</div>
+				<div class="card custom-card">
+					<a href="{{pathFor route='portfolio'}}#header"><img class="card-img card-img-custom" src="images/Art/traditional/art5.jpg" alt="Card image"></a>
+				</div>
+				<div class="card custom-card">
+					<a href="{{pathFor route='portfolio'}}#header"><img class="card-img card-img-custom" src="images/Art/traditional/art6.jpg" alt="Card image"></a>
+				</div>
+				<!-- <a href="{{pathFor route='portfolio'}}#header">See more</a> -->
+			</div>
+		</div>    
+	</section>
 </template>

@@ -13,13 +13,30 @@ Router.configure({
     layoutTemplate: 'navBar'
 });
 
-Router.route('/Admin');
+
+// gOjC1cI40a
+// ay3HX5HrgS
+// u1uDVEKH5J
+// xF4XRp7YZO
+// BS7fMG25py
+// CO5poAxWOC
+// gp2xN0v84G
+// P5laZ6rCk9
+
+Router.route('/xF4XRp7YZO', {
+    name: 'xF4XRp7YZO',
+    template: 'Admin'
+});
 Router.route('/contact');
 Router.route('/portfolio');
+Router.route('/shop');
 Router.route('/', {
     name: 'home',
     template: 'home'
 });
+// Router.route('/', function() {
+//     this.render('home')
+// });
 
 // $('#dCarousel').on('slide.bs.carousel', function (event) {
 //   var initiator = $(event.relatedTarget);
@@ -37,6 +54,12 @@ Router.route('/', {
 //     $('#header').css('opacity', '1');
 //     $('#header').css('transform', 'initial');
 // })
+
+Template.shop.helpers({
+    ShowAllShopItems(){
+        return artDB.find({'InShop':true})
+    }
+})
 
 
 Template.home.onRendered( function homeOnRendered(){
@@ -111,6 +134,9 @@ Template.Admin.helpers({
     },
     PreviewAllTraditional(){
         return artDB.find({'ArtMethod':'traditional'})
+    },
+    PreviewAllShopItems(){
+        return artDB.find({'InShop':true})
     }
 })
 
@@ -168,6 +194,12 @@ Template.Admin.events({
             'This is a test of Email.send'
         );
     },
+    'click .js-stockToggle'(e){
+        var idval = this._id;
+        var newval = artDB.findOne({'_id':idval}).InStock;
+        newval =  newval > 0 ? 0 : 1;
+        artDB.update({'_id':idval},{$set:{'InStock':newval}});
+    },
     'click .js-AddNew'(e){
         var name = $('#NewArtworkName').val();
         var showName=false;
@@ -177,8 +209,14 @@ Template.Admin.events({
         var img_target="";
         var price=$('#NewArtworkPrice').val();
         var inShop=false;
-        if(price != undefined && price != "")
+        var _instock=0;
+        if(price != undefined && price != "" &&  price != 0){
             inShop=true;
+            _instock=1;
+        } else {
+            alert("A price must be specified");
+            return;
+        }
         if($('#NewArtworkName').attr('disabled') || name == undefined || name == "")
             name = "Untitled";
         else
@@ -191,6 +229,8 @@ Template.Admin.events({
                 category="traditional";
                 break;
             default:
+                if(inShop==true)
+                    break;
                 alert("A category must be specified");
                 return;
         }
@@ -206,9 +246,44 @@ Template.Admin.events({
             img_target = "images\\Art\\" + category + "\\" + img_target;
             console.log("built URL : " + img_target);
         }
-        var slide_id = artDB.find({ArtMethod:category}).count();
+        if(!inShop)
+            var slide_id = artDB.find({ArtMethod:category}).count();
         e.preventDefault()
-        artDB.insert({'Name':name, 'ShowName':showName, 'Image':img_target, 'ArtMethod':category, 'InShop':inShop, 'Price':price, 'SlideTo':slide_id, 'InStock':0});
+        artDB.insert({'Name':name, 'ShowName':showName, 'Image':img_target, 'ArtMethod':category, 'InShop':inShop, 'Price':price, 'SlideTo':slide_id, 'InStock':_instock});
+        $('#NewArtworkPrice').val('');
+        $('#NewArtworkName').val('');
+        $('#setCategory').val('');
+        $('#getImage1').val('');
+    },
+    'click .js-edit'(e){
+        var idval=this._id;
+        var delVal = document.getElementById("delete"+idval);
+        if(delVal.checked){
+            $("#"+idval).fadeOut("slow","swing",function(){
+                artDB.remove({_id:idval});
+            });
+        } else {
+            var stringbuild = "#" + idval + "Name";//create the reference to name id
+            var name = $(stringbuild).val();//get the value
+            name = name.trim();
+            $(stringbuild).val('');//empty the corresponding field
+            stringbuild = "#" + idval + "Image";//create the reference to image id
+            var img_val = $(stringbuild).val();//get the value
+            img_val = img_val.trim();
+            $(stringbuild).val('');//empty the corresponding field
+            stringbuild = "#" + idval + "Price"//create the reference to price id
+            var price = $(stringbuild).val();//get the value
+            $(stringbuild).val('');//empty the corresponding field
+            stringbuild = "#" + idval + "Stock";//create the reference to stock id
+            var stock = $(stringbuild).val();//get the value
+            $(stringbuild).val('');//empty the corresponding field
+            name = (name==undefined||name=="") ? artDB.findOne({'_id':idval}).Name : name;
+            img_val = (img_val==undefined||img_val=="") ? artDB.findOne({'_id':idval}).Image : img_val;
+            price = (price==undefined||price=="") ? artDB.findOne({'_id':idval}).Price : price;
+            stock = (stock==undefined||stock=="") ? artDB.findOne({'_id':idval}).InStock : stock;
+            artDB.update({'_id':idval},{$set:{'Name':name, 'Image':img_val, 'Price':price, 'InStock':stock}});
+            console.log(name + ', ' + img_val + ', ' + price + ', ' + stock);
+        }
     }
 })
 
@@ -221,7 +296,7 @@ function loadFunction() {
 }
 
 
-
+/*
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -283,4 +358,4 @@ function scrollFunction() {
             }
         }
     } 
-}
+}*/
