@@ -58,6 +58,12 @@ Router.route('/', {
 Template.shop.helpers({
     ShowAllShopItems(){
         return artDB.find({'InShop':true})
+    },
+    ButtonType(){
+        var idval = this._id;
+        var val = artDB.findOne({'_id':idval}).InStock;
+        val = (val > 0) ? true : false;
+        return val;
     }
 })
 
@@ -137,6 +143,9 @@ Template.Admin.helpers({
     },
     PreviewAllShopItems(){
         return artDB.find({'InShop':true})
+    },
+    ShopItemImages(){
+        return artDB.find({})
     }
 })
 
@@ -209,14 +218,17 @@ Template.Admin.events({
         var img_target="";
         var price=$('#NewArtworkPrice').val();
         var inShop=false;
+        var shopitem= document.getElementById("addToShop");
         var _instock=0;
+        var desc=$("#NewArtworkDesc").val();
+        // var secondary_img=[];
         if(price != undefined && price != "" &&  price != 0){
             inShop=true;
             _instock=1;
-        } else {
-            alert("A price must be specified");
-            return;
-        }
+        }// else {
+        //     alert("A price must be specified");
+        //     return;
+        // }
         if($('#NewArtworkName').attr('disabled') || name == undefined || name == "")
             name = "Untitled";
         else
@@ -228,11 +240,16 @@ Template.Admin.events({
             case "2":
                 category="traditional";
                 break;
+            case "3":
+                category="stickers";
             default:
-                if(inShop==true)
-                    break;
                 alert("A category must be specified");
                 return;
+        }
+        if(desc== undefined || desc.trim() ==""){
+            if(category=="stickers"){
+                desc="Contour Cut\nWith UV protective laminate\nHand packaged with lots of love and care :)\n\nThank you for your support!\n";
+            }
         }
         img_val = $('#getImage1').val();
         if(img_val == undefined||img_val == ""){
@@ -249,11 +266,13 @@ Template.Admin.events({
         if(!inShop)
             var slide_id = artDB.find({ArtMethod:category}).count();
         e.preventDefault()
-        artDB.insert({'Name':name, 'ShowName':showName, 'Image':img_target, 'ArtMethod':category, 'InShop':inShop, 'Price':price, 'SlideTo':slide_id, 'InStock':_instock});
+        artDB.insert({'Name':name, 'ShowName':showName, 'Image':img_target, 'ArtMethod':category, 'InShop':inShop, 'Price':price, 'SlideTo':slide_id, 'InStock':_instock, 'Desc':desc, 'ShopItem':shopitem.checked});
         $('#NewArtworkPrice').val('');
         $('#NewArtworkName').val('');
         $('#setCategory').val('');
         $('#getImage1').val('');
+        $('#NewArtworkDesc').val('');
+        shopitem.checked=false;
     },
     'click .js-edit'(e){
         var idval=this._id;
@@ -277,6 +296,9 @@ Template.Admin.events({
             stringbuild = "#" + idval + "Stock";//create the reference to stock id
             var stock = $(stringbuild).val();//get the value
             $(stringbuild).val('');//empty the corresponding field
+            stringbuild = "#" + idval + "Desc";
+            var desc = $(stringbuild).val();
+            $(stringbuild).val('');
             name = (name==undefined||name=="") ? artDB.findOne({'_id':idval}).Name : name;
             img_val = (img_val==undefined||img_val=="") ? artDB.findOne({'_id':idval}).Image : img_val;
             price = (price==undefined||price=="") ? artDB.findOne({'_id':idval}).Price : price;

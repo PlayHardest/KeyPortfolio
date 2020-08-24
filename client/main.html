@@ -61,9 +61,6 @@
 				<div class="col">
 					<nav id="header-menu">
 						<ul class="nav justify-content-end">
-							<!-- <li class="nav-item">
-								<a class="nav-link shrink-a" href="{{pathFor route='home'}}">HOME</a>
-							</li> -->
 							<li class="nav-item">
 								<a class="nav-link shrink-a" href="{{pathFor route='home'}}#aboutMe">ABOUT ARTIST</a>
 							</li>
@@ -73,6 +70,9 @@
 									<a href="#" class="header_nav_option">DIGITAL ILLUSTRATIONS</a>
 									<a href="#" class="header_nav_option">TRADITIONAL ARTWORK</a>
 								</div> -->
+							</li>
+							<li class="nav-item">
+								<a class="nav-link shrink-a" href="{{pathFor route='shop'}}">SHOP</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link shrink-a" href="{{pathFor route='contact'}}">CONTACT</a>
@@ -164,6 +164,7 @@
 						<option value="0" selected>Select the category of the artwork</option>
 						<option value="1">Digital Artwork</option>
 						<option value="2">Traditional Artwork</option>
+						<option value="3">Sticker Art</option>
 					</select>
 				</div>
 			</div>
@@ -173,6 +174,15 @@
 						<div class="form-group">
 							<label for="getImage1">Select the image file</label>
 							<input type="file" class="form-control-file" id="getImage1">
+						</div>
+					</form>
+				</div>
+				<div class="w-100"></div>
+				<div class="col">
+					<form>
+						<div class="form-group">
+							<label for="desc{{_id}}">Description</label>
+							<textarea class="form-control" id="NewArtworkDesc" rows="5"></textarea>
 						</div>
 					</form>
 				</div>
@@ -235,11 +245,15 @@
 														</div>
 													</form>
 												</div>
-											<!-- <div class="row">
-												<div class="col-2">
-													Secondary images go here
+												<div class="w-100"></div>
+												<div class="col">
+													<form>
+														<div class="form-group">
+															<label for="{{_id}}Desc">Description</label>
+															<textarea class="form-control" id="{{_id}}Desc" rows="5"></textarea>
+														</div>
+													</form>
 												</div>
-											</div> -->
 												<div class="w-100"></div>
 												<div class="col">
 													<form>
@@ -356,6 +370,7 @@
 	</div>
 </template>
 
+
 <template name="shop">
 	<div class="album py-5">
 		<div class="container">
@@ -364,16 +379,17 @@
 					<div class="col-md-4">
 						<div id="{{_id}}" class="card shop-card" style="width: 18rem;">
 							<div class="pic-box">
-								<img src={{Image}} class="card-img-top" alt="...">
-								<!-- {{#if InStock}}
-									<button class="btn" >Buy Now</button>
+								{{#if ButtonType}}
+									<button class="btn-buy center-btn">Buy Now</button>
 								{{else}}
-									<button class="btn" disabled>Out of Stock</button>
-								{{/if}} -->
+									<button class="btn-oos center-btn" disabled>Out of Stock</button>
+								{{/if}}
+								<img src={{Image}} class="card-img-top" alt="Photograph of {{Name}}">
 							</div>
 							<div class="shop-card-body">
 								<div class="ItemLabel">
 									<a href="#" class="card-text">{{Name}}</a>
+									<p>${{Price}}</p>
 								</div>
 							</div>
 						</div>
@@ -526,13 +542,6 @@
 						We live in a world that is dynamic; constantly changing with each passing minute, and one direction that change has been taking is towards creativity. She is still trying to find her voice with her art, but aims to use her art as a way to make people smile, and she will continue to do so through its evolution process.”<br><br>
 						She has had pieces on display at “The Anonymous Charity Art Show” at The Frame & Art Co., Grande Salle “Crop Over Visual Arts Festival” and “Home” at Norman Centre.<br><br>
 					</p>
-					<!-- <br>
-					<br>
-					<h1 class="cat-heading">Why You Should Hire Me</h1>
-					<p>
-						Lorem ipsum dolor sit amest, consectetur adipiscing elit. Nullam pellentesque mauris vel enim suscipit porttitor ut sit amet ligula. In tellus metus, consectetur ut tortor eget, venenatis mollis enim. Duis eget lorem ac nisi fringilla varius et id metus. Sed quam eros, volutpat et nulla ut, aliquet tempus est. Nunc a dictum quam. Suspendisse dignissim nisi vitae odio pretium lobortis. Praesent ultricies tortor a tempor iaculis. Maecenas mollis placerat sapien vel tincidunt. Aenean et pulvinar turpis.
-						Nulla fringilla libero at justo feugiat, at malesuada ipsum euismod. Aliquam maximus tempus sapien ut ullamcorper. Pellentesque ac ex nisi. Integer vestibulum lacus tempor ante pharetra, a maximus risus bibendum. Ut ornare felis non erat cursus, eget consectetur mauris dapibus. Morbi ultrices purus nec cursus cursus. Pellentesque turpis enim, posuere vitae ante eleifend, porttitor semper nulla. Mauris viverra lacus vel euismod porttitor. Vestibulum est augue, consequat ac arcu vestibulum, luctus vestibulum eros. Ut at eros dictum, eleifend dolor luctus, imperdiet est. Nam a lacus dolor. Fusce aliquam mi eu odio gravida pellentesque.
-					</p> -->
 				</div>
 			</div>
 		</div>
@@ -565,8 +574,10 @@
 				</div>
 				<div class="card custom-card">
 					<a href="{{pathFor route='portfolio'}}#header"><img class="card-img card-img-custom" src="images/Art/traditional/art6.jpg" alt="Card image"></a>
+					<div class="card-body">
+						<a href="{{pathFor route='portfolio'}}#header">See more</a>
+					</div>
 				</div>
-				<!-- <a href="{{pathFor route='portfolio'}}#header">See more</a> -->
 			</div>
 		</div>    
 	</section>

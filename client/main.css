@@ -320,6 +320,9 @@ img.contact-item{
 	    -moz-column-gap: 0.25rem;
 	    column-gap: 0.25rem;
 	}
+	#gallery .custom-card{
+		background-color: transparent !important;
+	}
 	/*#gallery .card-columns-custom{
 		column-gap: 0px !important;
 	}
@@ -397,10 +400,10 @@ img.contact-item{
 }
 
 .pic-box{
-	background-color: white;
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	background-color: white;
+	position: relative;
+	z-index:2;
 }
 
 .pic-box img{
@@ -408,8 +411,63 @@ img.contact-item{
 	-webkit-transition: opacity .5s ease-in-out;
 	-moz-transition: opacity .5s ease-in-out;
 	-o-transition: opacity .5s ease-in-out;
+	z-index:1;
 }
 
-.pic-box img:hover{
-	opacity: 0.1
+.pic-box:hover .center-btn{
+	opacity:1;
+}
+
+.pic-box:hover img{
+	opacity:0.1;
+}
+/*.pic-box .center-btn:hover{
+	opacity: 1;
+}*/
+
+/*.pic-box img:hover{
+	opacity: 0.1;
+}
+
+.pic-box img:hover ~ .center-btn{
+	opacity: 1;
+}*/
+
+
+.center-btn{
+	transition: opacity .5s ease-in-out;
+	-webkit-transition: opacity .5s ease-in-out;
+	-moz-transition: opacity .5s ease-in-out;
+	-o-transition: opacity .5s ease-in-out;
+	margin-left:-80.94px;
+	margin-top:-19px;
+	left:50%;
+	top:50%;
+	position: absolute;
+	z-index:3;
+	opacity: 0;
+}
+
+.center-btn.btn-buy{
+	color: #fff;
+	background-color: #f4b5ac;
+	border-radius: 0px;
+	border: none;
+	padding: 0.375rem 3rem;
+}
+
+.center-btn.btn-oos{
+	margin-left:-91.905px !important;
+	color: #cacaca;
+	background-color: #847e87;
+	border-radius: 0px;
+	border: none;
+	padding: 0.375rem 3rem;
+}
+
+#text1:hover + #text2 {
+    opacity: 1;
+}
+#text1:hover {
+    opacity: 0;
 }
