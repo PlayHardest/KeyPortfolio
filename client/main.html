@@ -241,6 +241,11 @@
 																	<span class="input-group-text" id="basic-addon1">Stock</span>
 																</div>
 																<input type="number" class="form-control" id="{{_id}}Stock" placeholder="{{InStock}}">
+
+																<div class="input-group-prepend">
+																	<span class="input-group-text" id="basic-addon1">ShopOrder</span>
+																</div>
+																<input type="number" class="form-control" id="{{_id}}ShopOrder" placeholder="{{ShopOrder}}">
 															</div>
 														</div>
 													</form>
@@ -255,12 +260,33 @@
 													</form>
 												</div>
 												<div class="w-100"></div>
+												{{#each value in ExtraImages}}
+												<div class="col">
+													<img src={{value}} class="thumbnail" alt="...">
+												</div>
+												{{/each}}
+												<div class="w-100"></div>
+												<div class="col">
+													<form>
+														<div class="form-group">
+															<label for="getImage">Add extra image</label>
+															<input type="file" class="form-control-file" id="extraImage">
+														</div>
+													</form>
+												</div>
+												<div class="w-100"></div>
 												<div class="col">
 													<form>
 														<div class="form-check form-check-inline">
 															<input class="form-check-input" type="checkbox" id="delete{{_id}}">
 															<label class="form-check-label" for="delete{{_id}}">Delete Record</label>
 														</div>
+
+													<!-- 	<div class="form-check form-check-inline">
+															<input class="form-check-input" type="checkbox" id="deactivate{{_id}}">
+															<label class="form-check-label" for="deactivate{{_id}}">Deactivate Record</label>
+														</div>
+ -->
 													</form>
 												</div>
 											</div>

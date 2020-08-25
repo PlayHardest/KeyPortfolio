@@ -221,7 +221,7 @@ Template.Admin.events({
         var shopitem= document.getElementById("addToShop");
         var _instock=0;
         var desc=$("#NewArtworkDesc").val();
-        // var secondary_img=[];
+        var secondary_img=[];
         if(price != undefined && price != "" &&  price != 0){
             inShop=true;
             _instock=1;
@@ -266,7 +266,7 @@ Template.Admin.events({
         if(!inShop)
             var slide_id = artDB.find({ArtMethod:category}).count();
         e.preventDefault()
-        artDB.insert({'Name':name, 'ShowName':showName, 'Image':img_target, 'ArtMethod':category, 'InShop':inShop, 'Price':price, 'SlideTo':slide_id, 'InStock':_instock, 'Desc':desc, 'ShopItem':shopitem.checked});
+        artDB.insert({'Name':name, 'ShowName':showName, 'Image':img_target, 'ArtMethod':category, 'InShop':inShop, 'Price':price, 'SlideTo':slide_id, 'InStock':_instock, 'Desc':desc, 'ShopItem':shopitem.checked, 'ExtraImages':secondary_img, 'ShopOrder':0, 'Sale':0});
         $('#NewArtworkPrice').val('');
         $('#NewArtworkName').val('');
         $('#setCategory').val('');
@@ -299,11 +299,17 @@ Template.Admin.events({
             stringbuild = "#" + idval + "Desc";
             var desc = $(stringbuild).val();
             $(stringbuild).val('');
+            stringbuild = "#" + idval + "ShopOrder";
+            var shop_order = $(stringbuild).val();
+            $(stringbuild).val('');
+            //do image last
             name = (name==undefined||name=="") ? artDB.findOne({'_id':idval}).Name : name;
             img_val = (img_val==undefined||img_val=="") ? artDB.findOne({'_id':idval}).Image : img_val;
             price = (price==undefined||price=="") ? artDB.findOne({'_id':idval}).Price : price;
             stock = (stock==undefined||stock=="") ? artDB.findOne({'_id':idval}).InStock : stock;
-            artDB.update({'_id':idval},{$set:{'Name':name, 'Image':img_val, 'Price':price, 'InStock':stock}});
+            stock = (desc==undefined||desc=="") ? artDB.findOne({'_id':idval}).Desc : desc;
+            stock = (shop_order==undefined||shop_order=="") ? artDB.findOne({'_id':idval}).ShopOrder : shop_order;
+            artDB.update({'_id':idval},{$set:{'Name':name, 'Image':img_val, 'Price':price, 'InStock':stock, 'Desc':desc, 'ShopOrder':shop_order}});
             console.log(name + ', ' + img_val + ', ' + price + ', ' + stock);
         }
     }

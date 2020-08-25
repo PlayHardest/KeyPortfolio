@@ -465,6 +465,11 @@ img.contact-item{
 	padding: 0.375rem 3rem;
 }
 
+.thumbnail{
+	width: 100px;
+	height: 100px;
+}
+
 #text1:hover + #text2 {
     opacity: 1;
 }
