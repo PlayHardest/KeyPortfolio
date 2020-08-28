@@ -57,7 +57,8 @@ Router.route('/', {
 
 Template.shop.helpers({
     ShowAllShopItems(){
-        return artDB.find({'InShop':true})
+        return artDB.find({'InShop':true},{sort:{ShopOrder:1}})
+        // return taskDB.find({'childTask':false},{sort:{Privatedby:-1,Status: -1}})
     },
     ButtonType(){
         var idval = this._id;
@@ -221,7 +222,6 @@ Template.Admin.events({
         var shopitem= document.getElementById("addToShop");
         var _instock=0;
         var desc=$("#NewArtworkDesc").val();
-        var secondary_img=[];
         if(price != undefined && price != "" &&  price != 0){
             inShop=true;
             _instock=1;
@@ -242,6 +242,7 @@ Template.Admin.events({
                 break;
             case "3":
                 category="stickers";
+                break;
             default:
                 alert("A category must be specified");
                 return;
@@ -266,6 +267,7 @@ Template.Admin.events({
         if(!inShop)
             var slide_id = artDB.find({ArtMethod:category}).count();
         e.preventDefault()
+        var secondary_img=[img_target];
         artDB.insert({'Name':name, 'ShowName':showName, 'Image':img_target, 'ArtMethod':category, 'InShop':inShop, 'Price':price, 'SlideTo':slide_id, 'InStock':_instock, 'Desc':desc, 'ShopItem':shopitem.checked, 'ExtraImages':secondary_img, 'ShopOrder':0, 'Sale':0});
         $('#NewArtworkPrice').val('');
         $('#NewArtworkName').val('');
@@ -302,14 +304,35 @@ Template.Admin.events({
             stringbuild = "#" + idval + "ShopOrder";
             var shop_order = $(stringbuild).val();
             $(stringbuild).val('');
-            //do image last
+            stringbuild = "#" + idval + "extraImage"
+            var e_img_val = $(stringbuild).val();
+            $(stringbuild).val('');
+
+
+            if(e_img_val!=undefined && e_img_val!=""){
+                var start = e_img_val.lastIndexOf("\\")+1;
+                var end = (e_img_val.length);
+                var img_target = e_img_val.slice(start,end);
+                console.log(start + "||" + end + "||" + img_target);
+                img_target = "images\\Art\\" + artDB.findOne({'_id':idval}).ArtMethod + "\\" + img_target;
+                console.log("built URL : " + img_target);
+
+                var _extraImages=artDB.findOne({'_id':idval}).ExtraImages;
+                _extraImages[_extraImages.length]=img_target;
+            }
+                
+
+
             name = (name==undefined||name=="") ? artDB.findOne({'_id':idval}).Name : name;
             img_val = (img_val==undefined||img_val=="") ? artDB.findOne({'_id':idval}).Image : img_val;
             price = (price==undefined||price=="") ? artDB.findOne({'_id':idval}).Price : price;
             stock = (stock==undefined||stock=="") ? artDB.findOne({'_id':idval}).InStock : stock;
             stock = (desc==undefined||desc=="") ? artDB.findOne({'_id':idval}).Desc : desc;
             stock = (shop_order==undefined||shop_order=="") ? artDB.findOne({'_id':idval}).ShopOrder : shop_order;
-            artDB.update({'_id':idval},{$set:{'Name':name, 'Image':img_val, 'Price':price, 'InStock':stock, 'Desc':desc, 'ShopOrder':shop_order}});
+            _extraImages = (_extraImages.length > 1) ? _extraImages : artDB.findOne({'_id':idval}).ExtraImages;
+
+
+            artDB.update({'_id':idval},{$set:{'Name':name, 'Image':img_val, 'Price':price, 'InStock':stock, 'Desc':desc, 'ShopOrder':shop_order, 'ExtraImages':_extraImages}});
             console.log(name + ', ' + img_val + ', ' + price + ', ' + stock);
         }
     }
