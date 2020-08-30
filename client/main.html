@@ -1,5 +1,6 @@
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<title>KeyPortfolio</title>
 </head>
@@ -52,8 +53,8 @@
 			<div class="row no-gutters">
 				<div class="col-2">
 					<a href="{{pathFor route='home'}}">
-						<img class="topImg" src ="images/Other/keyart1.png">
-						<img class="bottomImg" src ="images/Other/keyart2.png">
+						<img class="topImg img-fluid" src ="images/Other/keyart1.png">
+						<img class="bottomImg img-fluid" src ="images/Other/keyart2.png">
 						<!-- <strong>KEEKS</strong>
 						<span> ART</span> -->
 					</a>
@@ -430,7 +431,7 @@
 	<div id="splashscreen" class="container"> <!-- style="padding-top:15px;">  -->
 		<div class="row">
 			<div class="col text-center">
-				<img class="splash" src="images/Other/image1.png">
+				<img class="splash img-fluid" src="images/Other/image1.png">
 			</div>
 		</div>
 	</div>
@@ -442,8 +443,8 @@
 	<section id="digital" class="h-change1">
 		<div class="container">
 			<div class="row">
-				<div class="col cat-heading">
-					<h1>Digital Artwork</h1>    
+				<div class="col">
+					<h1 class="cat-heading">Digital Artwork</h1>    
 				</div>
 			</div>
 			<div class="row">
@@ -457,8 +458,8 @@
 	<section id="traditional" class="h-change2">
 		<div class="container">
 			<div class="row">
-				<div class="col cat-heading">
-					<h1>Traditional Artwork</h1>    
+				<div class="col">
+					<h1 class="cat-heading">Traditional Artwork</h1>    
 				</div>
 			</div>
 			<div class="row">
@@ -578,8 +579,8 @@
 	<section id="gallery" class="h-change2">
 		<div class="container">
 			<div class="row">
-				<div class="col cat-heading">
-					<h1>Gallery</h1>    
+				<div class="col">
+					<h1 class="cat-heading">Gallery</h1>    
 				</div>
 			</div>
 			<div class="card-columns card-columns-custom">
@@ -601,7 +602,7 @@
 				<div class="card custom-card">
 					<a href="{{pathFor route='portfolio'}}#header"><img class="card-img card-img-custom" src="images/Art/traditional/art6.jpg" alt="Card image"></a>
 					<div class="card-body">
-						<a href="{{pathFor route='portfolio'}}#header">See more</a>
+						<a class="justify-content-end" href="{{pathFor route='portfolio'}}#header">See more</a>
 					</div>
 				</div>
 			</div>

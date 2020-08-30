@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import '../lib/collection.js';
 
 Meteor.startup(() => {
-	process.env.MAIL_URL = "smtps://postmaster%40sandbox3792583741c948cc94e90a9853042b2c.mailgun.org:a10a94e3a2787ce1af6ae04524ea1ebe-87c34c41-e6227654@smtp.mailgun.org:465"
+	process.env.MAIL_URL = "smtps://postmaster%40sandbox3792583741c948cc94e90a9853042b2c.mailgun.org:75d2f9eecb28a778e86825bf2896b71c-4d640632-e9c63b6a@smtp.mailgun.org:465"
   // code to run on server at startup
 });
 

@@ -1,12 +1,20 @@
+@font-face{
+	font-family: DosisFont;
+	src: url(fonts/Dosis-VariableFont_wght.ttf);
+}
+
+
 html{
 	/*-webkit-backdrop-filter: saturate(0%) blur(5px);*/
 	/*backdrop-filter: saturate(0%) blur(5px);*/
 }
+
+
 body {
 	background: url("images/Other/bg3.png");
 	background-attachment: fixed;
-	font-family: 'Eras ITC', sans-serif;
-	/*transition: all 0.2s;*/
+	font-family: 'DosisFont';
+	/*background-size: cover;*/
 }
 
 #wrapper{
@@ -117,6 +125,8 @@ img.contact-item{
 	/*opacity: 0;
 	transform: translateY(-50px);*/
 }
+
+
 	#header img:hover{
 		opacity:0;
 	}
@@ -139,7 +149,7 @@ img.contact-item{
 
 	#header .shrink-a{
 		transition: color .35s ease-in-out;
-		margin: 2em 3em 2em 1em;
+		margin: 2rem 3rem 2rem 1rem;
 		width: auto;
 		position: relative;
 		padding: 0px !important;
@@ -255,7 +265,8 @@ img.contact-item{
 		/*opacity: 0;
 		transform: translateY(-50px);
 		transition: all 3s;*/
-		height:500px;
+		/*width: 100%;*/
+		/*height:500px;*/
 }
 
 #aboutMe, #traditional{
@@ -287,6 +298,7 @@ img.contact-item{
 
 	#aboutMe::after, #traditional::after{
 		bottom:-200px;
+		/*box-shadow: inset 0 -2px 0 0 black;*/
 		/*opacity: 0.9;*/
 		/*background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><polygon points='0,0 0,180 200,150 200,0' style='fill:#f4b5ac;fill-opacity:0.95'/><polygon points='0,0 0,150 200,120 200,0' style='fill:black;fill-opacity:0.95'/></svg>");*/
 		background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMjAwJz48cG9seWdvbiBwb2ludHM9JzAsMCAwLDE4MCAyMDAsMTUwIDIwMCwwJyBzdHlsZT0nZmlsbDojZjRiNWFjJy8+PHBvbHlnb24gcG9pbnRzPScwLDAgMCwxNTAgMjAwLDEyMCAyMDAsMCcgc3R5bGU9J2ZpbGw6YmxhY2snLz48L3N2Zz4=");
@@ -323,29 +335,6 @@ img.contact-item{
 	#gallery .custom-card{
 		background-color: transparent !important;
 	}
-	/*#gallery .card-columns-custom{
-		column-gap: 0px !important;
-	}
-	
-	#gallery .card-img-custom{
-		border-radius: 0px !important;
-		transition: opacity .35s ease-in-out;
-	}
-
-		#gallery .card-img-custom:hover{
-			opacity : 0.1;
-		}
-
-	#gallery .custom-card{
-		background-color: inherit !important;
-		border: 1px solid #000 !important;
-		border-bottom-width: 1.5px !important;
-		border-top-width: 1.5px !important;
-		margin-bottom: 0px !important;
-	}
-*/ 
-
-
 
 .site-header a {
     color: white;
@@ -379,9 +368,7 @@ img.contact-item{
 	border-radius: none !important;
 	background-color: transparent !important;
 }
-	/*.shop-card:hover{
 
-	}*/
 
 .shop-card-body{
 	flex: 1 1 auto;
@@ -421,17 +408,6 @@ img.contact-item{
 .pic-box:hover img{
 	opacity:0.1;
 }
-/*.pic-box .center-btn:hover{
-	opacity: 1;
-}*/
-
-/*.pic-box img:hover{
-	opacity: 0.1;
-}
-
-.pic-box img:hover ~ .center-btn{
-	opacity: 1;
-}*/
 
 
 .center-btn{
@@ -468,11 +444,4 @@ img.contact-item{
 .thumbnail{
 	width: 100px;
 	height: 100px;
-}
-
-#text1:hover + #text2 {
-    opacity: 1;
-}
-#text1:hover {
-    opacity: 0;
 }
